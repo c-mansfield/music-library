@@ -1,0 +1,11 @@
+body {
+    background: #E0E0E0;
+}
+
+.navbar {
+    border-radius: 0;
+}
+
+.navbar-brand {
+    font-family: 'Open Sans';
+}

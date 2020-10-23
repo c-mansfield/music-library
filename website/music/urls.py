@@ -4,12 +4,14 @@ from . import views
 app_name = 'music'
 
 urlpatterns = [
+
     # /music/
-    path('', views.index, name='index'),
+    path('', views.IndexView.as_view(), name='index'),
 
     # /music/<album_id>/
-    path('<int:album_id>/', views.details, name='detail'),
+    path('<int:pk>/', views.DetailsView.as_view(), name='detail'),
 
-    # /music/<album_id>/favourite/
-    path('<int:album_id>/favourite/', views.favourite, name='favourite'),
+    # /music/album/add/
+    path('album/add/', views.AlbumCreate.as_view(), name='album-add')
+
 ]

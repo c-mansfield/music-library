@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 
 # Create your models here.
 # All Models get primary key auto
@@ -8,6 +9,10 @@ class Album(models.Model):
     album_title = models.CharField(max_length=255)
     genre = models.CharField(max_length=255)
     album_art = models.CharField(max_length=1000)
+
+    # On create new this is redirect url, passing through pk of that object
+    def get_absolute_url(self):
+        return reverse('music:detail', kwargs={'pk': self.pk})
 
     #Object return string
     def __str__(self):

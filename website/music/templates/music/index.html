@@ -1,21 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Albums</title>
-</head>
-<body>
+{% extends 'music/base.html' %}
+{% block title %}Home{% endblock %}
 
-{% if all_albums %}
-    <h2>All Albums</h2>
-    <ul>
-        {% for a in all_albums %}
-        <li><a href="{% url 'music:detail' a.id %}">{{ a.artist }} - {{ a.album_title }}</a></li>
-        {% endfor %}
-    </ul>
-{% else %}
-    <h2>No Albums found</h2>
-{% endif %}
-
-</body>
-</html>
+{% block body %}
+    {% if albums %}
+        <ul>
+            {% for a in albums %}
+            <li><a href="{% url 'music:detail' a.id %}">{{ a.artist }} - {{ a.album_title }}</a></li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <h2>No Albums found</h2>
+    {% endif %}
+{% endblock %}
