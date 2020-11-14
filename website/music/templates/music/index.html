@@ -5,7 +5,15 @@
     {% if albums %}
         <ul>
             {% for a in albums %}
-            <li><a href="{% url 'music:detail' a.id %}">{{ a.artist }} - {{ a.album_title }}</a></li>
+            <li>
+                <a href="{% url 'music:detail' a.id %}">{{ a.artist }} - {{ a.album_title }}</a>
+                <form action="{% url 'music:album-del' a.id %}" method="post" style="display:inline;">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-default btn-sm">
+                        Delete
+                    </button>
+                </form>
+            </li>
             {% endfor %}
         </ul>
     {% else %}

@@ -3,9 +3,9 @@
 {% block title %}Album Details{% endblock %}
 
 {% block body %}
-    <img src="{{ album.album_art }}" height="250px" width="250px">
+    <img src="{{ album.album_art.url }}" height="250px" width="250px">
 
-    <h2>{{ album.album_title }}</h2>
+    <h2>{{ album.album_title.url }}</h2>
     <h3>{{ album.artist }}</h3>
 
     {% if error_message %}
